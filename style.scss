@@ -1,0 +1,707 @@
+@use 'partials';
+
+// Variables for colors and common styles
+$primary-color: #776D68;
+$background-color: #F9F7F7;
+$light-bg-color: #B9B6B5;
+$white: #F9F7F7;
+$shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+// Global Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-style: normal;
+  font-weight: 400;
+  color: $primary-color;
+  background-color: $background-color;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  margin-bottom: 15px;
+}
+
+section {
+  margin: 0 auto;
+}
+
+// Navbar Styles
+header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: $primary-color;
+  padding: 20px;
+  z-index: 10;
+  display: flex;
+ 
+  
+
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; 
+  margin-top: 10px;
+  z-index: 100;
+  width: 100%;
+
+
+  a {
+    margin: 0 15px;
+    color: $primary-color;
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.transparent-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    color: white; /* Text color when transparent */
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar when scrolled */
+.scrolled-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333; /* Your desired background color */
+    color: black; /* Change text color if needed */
+    transition: background-color 0.3s ease;
+}
+.header-home {
+    background-color: transparent; /* Transparent for home page */
+    color: #F9F7F7; /* White text */
+    position: absolute;
+    top: 0;
+    a{
+        color: #F9F7F7;
+        float: right;
+    }
+}
+.header-regular {
+    background-color: #333; /* Dark background for other pages */
+    color: #f0f0f0; /* Light gray text */
+    position: relative;
+    a{
+        color: #F9F7F7;
+    }
+}
+
+// Hero Section
+.hero {
+  position: relative;
+  width: 100%;
+  height: 600px; // Adjust the height as needed
+  background: url(pbilleder/midlertidig-hero.png) no-repeat center center/cover;
+
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $white;
+    background-color: rgba(121, 109, 102, 0.5);
+    padding: 40px;
+
+    h2 {
+      animation: slideInFromLeft 1s ease-out 0.5s forwards;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      animation: slideInFromLeft 1s ease-out 1s forwards;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+// Keyframes for slide-in animation
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Intro Section
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 40px;
+  max-width: 900px;
+  margin: 20px auto 40px;
+
+  &-image img {
+    display: flex;
+  max-width: 400px;
+    padding: 20px;
+  }
+
+  &-content {
+    background-color: $background-color;
+    padding: 20px;
+    box-shadow: $shadow;
+    width: 50%;
+
+    h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+  }
+}
+
+
+.project-video {
+    width: 100%; /* Set initial width */
+    overflow: hidden; /* Ensure no overflow when scaling */
+    transition: transform 0.3s ease; /* Smooth transition */
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.project-content{display: flex;
+  flex-direction: column;
+  
+}
+
+.project-video video {
+    width: 100%; /* Ensure video takes full width of container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.project-video:hover {
+    transform: scale(1.1); /* Make the video 10% larger on hover */
+}
+
+.project-video a {
+    display: block; /* Ensure video is fully clickable */
+    text-decoration: none;
+}
+ button {
+    margin-top: 10px; /* Space between the paragraph and button */
+    margin-bottom: 10px;
+    padding: 10px 15px; /* Padding for the button */
+    background-color: #333; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    width: 100px;
+}
+.project {
+ max-width: 900px;}
+
+button:hover {
+    background-color: #776D68; /* Darker background on hover */
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.contact-info {
+    display: flex;
+    gap: 10px;
+  margin: 40px;
+}
+.info-box { 
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 50%;
+}
+.info-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.info-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background-color: F9F7F7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+// Skills Section
+.kompetancer {
+  text-align: center;
+
+  h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  &-content {
+    padding: 50px;
+    background-color: $light-bg-color;
+    box-shadow: $shadow;
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// Projects Section
+.spil {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+  background-color: $background-color;
+  box-shadow: $shadow;
+  border-radius: 10px;
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 20px auto 40px;
+
+  h3 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+}
+
+.projekter-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+// "Om mig" section
+#ommig{ display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;}
+.ommigintro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/* Container styling */
+.minvideo {
+    cursor: pointer;
+    width: 100%; /* Initial size of the video */
+    height: 370px;
+    overflow: hidden;
+}
+
+/* Video styling */
+.minvideo-container {
+    display: flex;
+    cursor: pointer;
+    padding-top: 40px;
+    width: 100%; /* Initial size of the video */
+    overflow: hidden;
+    transition: all 0.3s ease;
+    &:hover .watch-video-text {
+        opacity: 1; /* Show the text when hovering */
+    }
+}
+/* Video styling */
+.minvideo video {
+    width: 100%; /* Ensure video takes full width of container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Hover text styling */
+.watch-video-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Text doesn't affect the click event */
+}
+
+/* Enlarged video on click */
+.enlarge-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw; /* 80% of the viewport width */
+    height: 45vw; /* Maintain 16:9 aspect ratio */
+    z-index: 999; /* Bring it to the front */
+    background-color: black; /* Add background for focus */
+    transition: all 0.3s ease; /* Smooth animation for enlarging */
+}
+
+.enlarge-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.projekter-intro {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #666;
+  max-width: 600px;
+}
+
+
+
+// Footer Styles
+footer {
+  background-color: $primary-color;
+  color: $white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  margin-top: 50px;
+}
+// Media Queries for responsiveness
+@media (max-width: 768px) {
+  
+    header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        color: $primary-color;
+        padding: 20px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+      
+      }
+      
+      nav {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        margin-top: 10px;
+        z-index: 100;
+        width: 100%;
+      
+        a {
+          margin: 0 15px;
+          color: $primary-color;
+          font-weight: bold;
+          transition: color 0.3s ease;
+      
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .hero-content {
+        h2 {
+          font-size: 32px;
+        }
+    
+        p {
+          font-size: 18px;
+        }
+      }
+    
+      .intro, .kompetancer {
+        flex-direction: column;
+        text-align: center;
+    
+        &-content, .kompetancer-content {
+          margin: 20px 0;
+        }
+      }
+    
+      .intro-image img {
+        max-width: 200px;
+      }
+    
+      .projekter-image img {
+        max-width: 100%;
+      }
+      .project-image video {
+        max-width: 100%;
+      }
+    
+      .spil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .project {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 40px;
+        gap: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);}
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+        .info-box { 
+        width: 100%;
+        }
+        
+        .contact-form {
+            width: 100%;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #projekter {
+            padding: 20px;
+            background-color: #F5F5F5; // Background for the projects section
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+          
+            .projekter-title {
+              text-align: center;
+              font-size: 2rem;
+              margin-bottom: 20px;
+            }
+          
+            .projekter-intro {
+              text-align: center;
+              margin-bottom: 40px;
+              color: #666;
+              max-width: 600px;
+            }
+          
+            .project {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 40px;
+              padding: 20px;
+              gap: 20px;
+              background-color: white;
+              box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+              max-width: 1000px;
+              
+              .project-image {
+                width: 55%;
+                img {
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                }
+              }
+          
+             
+            }
+           
+          }
+          .project-video {
+            width: 100%; /* Set initial width */
+            overflow: hidden; /* Ensure no overflow when scaling */
+            transition: transform 0.3s ease; /* Smooth transition */
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+        }
+        
+        .project-video video {
+            width: 100%; /* Ensure video takes full width of container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 20px;
+            padding: 20px;
+        }
+       
+            .enlarge-video {
+                width: 100vw; /* Full width for mobile */
+                height: 56.25vw; /* Maintain aspect ratio */
+            }
+        
+            .minvideo-container {
+                width: 100%; /* Full width on mobile */
+                height: auto;
+            }
+        
+            .minvideo video {
+                width: 100%;
+                height: auto;
+            }
+                .enlarge-video {
+                    width: 100vw; /* Full width for mobile */
+                    height: 56.25vw; /* Maintain aspect ratio */
+                }
+            
+                .minvideo-container {
+                    width: 100%; /* Full width on mobile */
+                    height: auto;
+                }
+            
+                .minvideo video {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            
+            
+            .profil-image img {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 50%;
+              padding: 10% 0 10% 20px;
+            }
+            
+            .ommig-content {
+                display: flex;
+                flex-direction: column;
+              margin-left: 20px;
+              background-color: $background-color;
+              padding: 50px;
+              box-shadow: $shadow;
+            }
+            
+            #projekter {
+                padding: 20px;
+                background-color: #F5F5F5; // Background for the projects section
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            
+              
+                .projekter-title {
+                  text-align: center;
+                  font-size: 2rem;
+                  margin-bottom: 20px;
+                }
+              
+                .projekter-intro {
+                  text-align: center;
+                  margin-bottom: 40px;
+                  color: #666;
+                }
+              
+                .project {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 40px;
+                  padding: 20px;
+                  gap: 20px;
+                  background-color: white;
+                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                  max-width: 1000px;
+                  
+                  .project-image {
+                    width: 55%;
+                    img {
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                    }
+                  }
+                  .spil{display: flex;
+                justify-content: center;
+            align-items: center;}
+              
+                  .project-content {
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+              
+                    h3 {
+                      font-size: 1.5rem;
+                      margin-bottom: 10px;
+                    }
+              
+                    p {
+                      color: #555;
+                      font-size: 1rem;
+                    }
+                  }
+                }
+               
+              
+              
+            
+        
+      }
